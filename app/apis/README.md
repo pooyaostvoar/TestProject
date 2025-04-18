@@ -129,6 +129,77 @@ When the specified `book_id` does not exist, the server will return a `404 Not F
   }
   ```
 ---
+## 🔄 [`PUT /books/{book_id}`](http://localhost:8000/docs#/default/update_book)
+
+Update an existing book by its `id`.
+
+This endpoint replaces all fields of the specified book with the new data provided in the request body.
+
+
+### ✅ Request
+
+**Method:** `PUT`  
+**URL:** `/books/{book_id}`
+
+**Path Parameter:**
+
+- `book_id`: `integer` — ID of the book to update
+
+**Request Body:**
+
+```json
+{
+  "title": "Deep Work (Updated)",
+  "author": "Cal Newport",
+  "published_date": "2025-04-18",
+  "isbn": "978-3-16-148410-0"
+}
+```
+
+### ✅ Success Response
+
+- **Status Code:** `200 OK`
+- **Response Body:**
+
+```json
+{
+  "id": 1,
+  "title": "The Deep (Updated)",
+  "author": "Cal Newport",
+  "published_date": "2025-04-18",
+  "isbn": "978-3-16-148410-0"
+}
+```
+
+### ❌ 404 Not Found
+
+When the specified `book_id` does not exist, the server will return a `404 Not Found` response.
+
+### Response
+- **Status Code**: `404 Not Found`
+- **Content-Type**: `application/json`
+- **Body**:
+  ```json
+  {
+    "detail": "Book not found"
+  }
+  ```
+
+### ❌ 422 Unprocessable Entity 
+  If required fields are missing or validation fails.
+  Example:
+  ```json
+  {
+    "detail": [
+      {
+        "loc": ["body", "title"],
+        "msg": "Field required",
+        "type": "value_error.missing"
+      }
+    ]
+  }
+  ```
+---
 
 
 More endpoints will be documented soon. For now, check `/docs` for full details.
