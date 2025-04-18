@@ -15,5 +15,15 @@ class BookCreate(BaseModel):
             raise ValueError("Invalid ISBN")
         return v
 
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "title": "The Deep Work",
+                "author": "Cal Newport",
+                "published_date": "2025-04-18",
+                "isbn": "978-3-16-148410-0"
+            }
+        }
+
 class BookRead(BookCreate):
     id: int
