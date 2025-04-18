@@ -15,7 +15,7 @@ class BookCreate(BaseModel):
             raise ValueError("Invalid ISBN")
         return v
 
-    class Config:
+    class ConfigDict:
         json_schema_extra = {
             "example": {
                 "title": "The Deep Work",

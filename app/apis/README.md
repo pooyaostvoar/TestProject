@@ -68,7 +68,34 @@ All fields are required except `published_date` and `isbn`.
     ]
   }
   ```
-
 ---
+## [📖 GET /books](http://localhost:8000/docs#/default/get_books_books_get)
+
+Returns a list of books, with optional pagination.
+
+### 🔸 Query Parameters
+
+- `skip` (int, default: `0`): Number of records to skip.
+- `limit` (int, default: `10`): Maximum number of records to return.
+
+### ✅ Success Response
+
+- **Status Code:** `200 OK`
+- **Response Body:**
+
+```json
+[
+  {
+    "id": 1,
+    "title": "The Deep Work",
+    "author": "Cal Newport",
+    "published_date": "2025-04-18",
+    "isbn": "978-3-16-148410-0"
+  },
+  ...
+]
+```
+---
+
 
 More endpoints will be documented soon. For now, check `/docs` for full details.
