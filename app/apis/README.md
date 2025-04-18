@@ -97,5 +97,38 @@ Returns a list of books, with optional pagination.
 ```
 ---
 
+## [📖 GET /books/{id}](http://localhost:8000/docs#/default/get_book_by_id)
+
+Returns a specific book.
+
+### ✅ Success Response
+
+- **Status Code:** `200 OK`
+- **Response Body:**
+
+```json
+{
+  "id": 1,
+  "title": "The Deep Work",
+  "author": "Cal Newport",
+  "published_date": "2025-04-18",
+  "isbn": "978-3-16-148410-0"
+}
+```
+### ❌ 404 Not Found
+
+When the specified `book_id` does not exist, the server will return a `404 Not Found` response.
+
+### Response
+- **Status Code**: `404 Not Found`
+- **Content-Type**: `application/json`
+- **Body**:
+  ```json
+  {
+    "detail": "Book not found"
+  }
+  ```
+---
+
 
 More endpoints will be documented soon. For now, check `/docs` for full details.
