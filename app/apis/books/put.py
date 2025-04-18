@@ -26,4 +26,6 @@ def update_book(book_id: int, book_in: BookCreate, session: Session = Depends(ge
     if updated_book is None:
         raise HTTPException(status_code=404, detail="Book not found")
 
+    session.commit()
+
     return updated_book
