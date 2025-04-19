@@ -8,3 +8,5 @@ pytest
 httpx
 python-stdnum
 alembic
+flake8
+black

@@ -4,13 +4,17 @@ from app.main import app
 
 client = TestClient(app)
 
+
 @pytest.fixture(scope="function", autouse=True)
 def setup_books():
     for i in range(10):
-        client.post("/books", json={
-            "title": f"Book {i}",
-            "author": f"Author {i}",
-        })
+        client.post(
+            "/books",
+            json={
+                "title": f"Book {i}",
+                "author": f"Author {i}",
+            },
+        )
 
 
 def test_get_books_with_pagination_limit_5_offset_0():

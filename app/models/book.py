@@ -29,16 +29,21 @@ class Book(SQLModel, table=True):
                 title=book_in.title,
                 author=book_in.author,
                 isbn=book_in.isbn,
-                published_date=book_in.published_date
+                published_date=book_in.published_date,
             )
             .returning(Book)
         )
-        return  result.scalar_one_or_none()
+        return result.scalar_one_or_none()
 
     @classmethod
-    def get_all(cls, pagination:PaginationParams, session:Session) -> Sequence["Book"]:
+    def get_all(
+        cls, pagination: PaginationParams, session: Session
+    ) -> Sequence["Book"]:
         return session.exec(
-            select(Book).offset(pagination.offset).limit(pagination.limit).order_by(Book.id)
+            select(Book)
+            .offset(pagination.offset)
+            .limit(pagination.limit)
+            .order_by(Book.id)
         ).all()
 
     @classmethod
@@ -46,11 +51,7 @@ class Book(SQLModel, table=True):
         return session.exec(select(Book).where(Book.id == book_id)).first()
 
     @classmethod
-    def delete_book_by_id(cls, book_id: int, session:Session)->Optional["Book"]:
-        result = session.exec(
-            delete(Book)
-            .where(Book.id == book_id)
-            .returning(Book)
-        )
+    def delete_book_by_id(cls, book_id: int, session: Session) -> Optional["Book"]:
+        result = session.exec(delete(Book).where(Book.id == book_id).returning(Book))
 
         return result.scalar_one_or_none()

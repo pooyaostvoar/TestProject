@@ -1,6 +1,6 @@
 import pytest
 from app.database import engine
-from sqlmodel import  SQLModel
+from sqlmodel import SQLModel
 
 
 @pytest.fixture(scope="function", autouse=True)

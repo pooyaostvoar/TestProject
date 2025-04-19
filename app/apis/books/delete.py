@@ -6,6 +6,7 @@ from app.services.book import delete_book_by_id
 
 router = APIRouter()
 
+
 @router.delete("/books/{book_id}", status_code=204)
 def delete_book(book_id: int, session: Session = Depends(get_session)):
     try:
