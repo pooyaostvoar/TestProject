@@ -109,12 +109,7 @@ For local development, the database is configured to use SQLite (when you're run
 
 To switch to PostgreSQL in production:
 
-1. Modify the `DATABASE_URL` in your `.env` file to use PostgreSQL (e.g., `postgresql+psycopg2://user:password@host:port/database`).
+Modify the `DATABASE_URL` in your `.env` file to use PostgreSQL (e.g., `postgresql+psycopg2://user:password@host:port/database`).
 
-2. Update the `sqlalchemy.url` setting in the `alembic.ini` file to point to the production PostgreSQL database:
-
-   ```ini
-   sqlalchemy.url = postgresql+psycopg2://user:password@host:5432/production_db
-   ```
 For more detail you can check this [README](https://github.com/pooyaostvoar/TestProject/blob/main/alembic/README.md)
 

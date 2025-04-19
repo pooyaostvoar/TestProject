@@ -38,7 +38,7 @@ Whenever you make changes to your models, you need to generate new migration fil
 Currently, the development environment uses **SQLite** for testing and development. All migrations are applied to this SQLite database. You can find it in the project's root directory as `./tests.db`.
 
 - This is a simple local database used to quickly apply and test migrations.
-- In production, you can switch to a more robust database like PostgreSQL by modifying the `DATABASE_URL` in the `.env` file or your Docker configuration and also change `sqlalchemy.url` in `alembic.ini`.
+- In production, you can switch to a more robust database like PostgreSQL by modifying the `DATABASE_URL` in the `.env` file or your Docker configuration.
 
 #### Checking the SQLite Database
 
