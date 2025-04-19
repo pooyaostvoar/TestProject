@@ -6,7 +6,7 @@ For full interactive documentation and the ability to test each endpoint, visit:
 
 ---
 
-## [📚 `POST /books`](http://127.0.0.1:8000/docs#/default/create_book_books_post)
+## [📚 POST /books](http://127.0.0.1:8000/docs#/default/create_book_books_post)
 
 Creates a new book entry.
 
@@ -129,7 +129,7 @@ When the specified `book_id` does not exist, the server will return a `404 Not F
   }
   ```
 ---
-## 🔄 [`PUT /books/{book_id}`](http://localhost:8000/docs#/default/update_book)
+## 🔄 [PUT /books/{book_id}](http://localhost:8000/docs#/default/update_book)
 
 Update an existing book by its `id`.
 
@@ -200,6 +200,17 @@ When the specified `book_id` does not exist, the server will return a `404 Not F
   }
   ```
 ---
+## 📚 [DELETE /books/{book_id}](http://localhost:8000/docs#/default/delete_book)
 
+This endpoint allows you to delete a book by its ID.
+
+### Request Parameters:
+- **book_id** (path parameter): The ID of the book to be deleted.
+
+### Responses:
+- **204 No Content**: The book was successfully deleted.
+- **404 Not Found**: The book with the provided ID does not exist.
+
+---
 
 More endpoints will be documented soon. For now, check `/docs` for full details.
