@@ -1,10 +1,12 @@
-from typing import Optional
+from typing import Optional, Sequence
 
 from sqlmodel import Session
 
 from app.errors.book import BookNotFoundError
 from app.models.book import Book
 from app.schemas.book import BookCreate
+from app.schemas.pagination import PaginationParams
+
 
 def create_book(book_in: BookCreate, session: Session) -> Book:
     return Book.create(book_in, session)
@@ -18,3 +20,5 @@ def update_book(book_id: int, book_in, session: Session) -> Optional["Book"]:
 
     return updated_book
 
+def get_all_books(pagination: PaginationParams, session:Session)-> Sequence["Book"]:
+    return Book.get_all(pagination, session)
