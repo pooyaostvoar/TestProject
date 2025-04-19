@@ -141,3 +141,30 @@ black app/
 ```
 
 This command will automatically format the code in the `app` directory according to Black's strict rules.
+
+---
+## 🛠️ Development Workflow
+
+Throughout the project, I followed a feature-driven development approach:
+
+### Branching: 
+Each feature was developed in its own dedicated branch to keep changes isolated and organized.
+
+### Atomic Commits: 
+Commits were made incrementally and kept atomic, making it easier to review the code history. Reviewing by commit can help you understand the development flow clearly.
+
+### Test-Driven Development (TDD): 
+I aimed to follow the TDD cycle — write a failing test, implement the feature, and then refactor/improve. This ensured a test-first approach and higher confidence in the codebase.
+
+### README Updates: 
+After implementing each feature, I made sure to update the README accordingly to reflect the changes and usage.
+
+### Docker Setup: 
+A Dockerfile and docker-compose.yml were created for development purposes. While the current setup is tailored for local dev, there's room for improvement with a production-ready deployment configuration (e.g., a separate docker-compose.prod.yml and GitHub workflow to push images to a Docker registry).
+
+### CI/CD with GitHub Actions: 
+A GitHub Action workflow was added to automatically run all tests when a pull request is made. This helps ensure the code is stable before merging.
+
+### Pull Requests: 
+After setting up the GitHub Action, I submitted all remaining changes via PRs to ensure they were properly tested and reviewed.
+
