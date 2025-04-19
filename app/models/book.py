@@ -40,3 +40,7 @@ class Book(SQLModel, table=True):
         return session.exec(
             select(Book).offset(pagination.offset).limit(pagination.limit)
         ).all()
+
+    @classmethod
+    def get_book_by_id(cls, book_id: int, session: Session) -> Optional["Book"]:
+        return session.exec(select(Book).where(Book.id == book_id)).first()
