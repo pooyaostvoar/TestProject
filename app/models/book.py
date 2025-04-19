@@ -38,7 +38,7 @@ class Book(SQLModel, table=True):
     @classmethod
     def get_all(cls, pagination:PaginationParams, session:Session) -> Sequence["Book"]:
         return session.exec(
-            select(Book).offset(pagination.offset).limit(pagination.limit)
+            select(Book).offset(pagination.offset).limit(pagination.limit).order_by(Book.id)
         ).all()
 
     @classmethod
