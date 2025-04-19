@@ -1,4 +1,4 @@
-from sqlmodel import SQLModel, Field, Session, update, select
+from sqlmodel import SQLModel, Field, Session, update, select, delete
 from typing import Optional, Sequence
 from datetime import date
 
@@ -44,3 +44,13 @@ class Book(SQLModel, table=True):
     @classmethod
     def get_book_by_id(cls, book_id: int, session: Session) -> Optional["Book"]:
         return session.exec(select(Book).where(Book.id == book_id)).first()
+
+    @classmethod
+    def delete_book_by_id(cls, book_id: int, session:Session)->Optional["Book"]:
+        result = session.exec(
+            delete(Book)
+            .where(Book.id == book_id)
+            .returning(Book)
+        )
+
+        return result.scalar_one_or_none()

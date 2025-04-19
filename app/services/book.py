@@ -30,3 +30,13 @@ def get_book_by_id(book_id:int, session:Session)->Optional[Book]:
         raise BookNotFoundError()
 
     return book
+
+def delete_book_by_id(book_id:int, session:Session)->Optional[Book]:
+    deleted_book = Book.delete_book_by_id(book_id, session)
+
+    if deleted_book is None:
+        raise  BookNotFoundError()
+
+    session.commit()
+
+    return deleted_book
