@@ -116,5 +116,5 @@ To switch to PostgreSQL in production:
    ```ini
    sqlalchemy.url = postgresql+psycopg2://user:password@host:5432/production_db
    ```
-For more detail you can check this [README](https://github.com/pooyaostvoar/TestProject/blob/main/alembic/README)
+For more detail you can check this [README](https://github.com/pooyaostvoar/TestProject/blob/main/alembic/README.md)
 
