@@ -61,6 +61,8 @@ Once the app is running, explore the API documentation:
 - ReDoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
 These tools show available endpoints, schemas, and example `curl` commands.
+You can also check this [README](https://github.com/pooyaostvoar/TestProject/blob/main/app/apis/README.md)
+
 
 ---
 ## Testing
@@ -93,3 +95,26 @@ To run the tests locally, ensure you have all dependencies installed and set up 
 On every pull request, the tests will run in a GitHub Actions CI pipeline using the same SQLite setup, ensuring that all tests pass before merging the PR.
 
 For more details about the CI pipeline, see the `ci.yml` file in the `.github/workflows` directory.
+
+
+---
+
+## 🛠️ Database Migrations
+
+### Local Development (SQLite)
+
+For local development, the database is configured to use SQLite (when you're running the tests).
+
+### Switching to PostgreSQL in Production
+
+To switch to PostgreSQL in production:
+
+1. Modify the `DATABASE_URL` in your `.env` file to use PostgreSQL (e.g., `postgresql+psycopg2://user:password@host:port/database`).
+
+2. Update the `sqlalchemy.url` setting in the `alembic.ini` file to point to the production PostgreSQL database:
+
+   ```ini
+   sqlalchemy.url = postgresql+psycopg2://user:password@host:5432/production_db
+   ```
+For more detail you can check this [README](https://github.com/pooyaostvoar/TestProject/blob/main/alembic/README)
+

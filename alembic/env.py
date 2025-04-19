@@ -18,7 +18,7 @@ fileConfig(config.config_file_name)
 target_metadata = SQLModel.metadata
 
 def get_url():
-    return 'sqlite:///./tests.db'
+    return os.getenv("DATABASE_URL", "sqlite:///./tests.db")
 
 def run_migrations_offline():
     """Run migrations in 'offline' mode."""
