@@ -1,6 +1,9 @@
-from sqlmodel import SQLModel, Field, Session,update
-from typing import Optional
+from sqlmodel import SQLModel, Field, Session, update, select
+from typing import Optional, Sequence
 from datetime import date
+
+from app.schemas.pagination import PaginationParams
+
 
 class Book(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
@@ -31,3 +34,9 @@ class Book(SQLModel, table=True):
             .returning(Book)
         )
         return  result.scalar_one_or_none()
+
+    @classmethod
+    def get_all(cls, pagination:PaginationParams, session:Session) -> Sequence["Book"]:
+        return session.exec(
+            select(Book).offset(pagination.offset).limit(pagination.limit)
+        ).all()
