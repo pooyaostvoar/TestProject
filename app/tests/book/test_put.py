@@ -44,7 +44,7 @@ def test_update_book_not_found():
 
 def test_update_book_with_invalid_isbn():
     response = client.put("/books/1", json={
-        "title":"title",
+        "title":"titl",
         "author": "author",
         "isbn": "9781455586691-invalid"
     })
