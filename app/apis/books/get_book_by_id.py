@@ -4,6 +4,7 @@ from app.database import get_session
 from app.errors.book import BookNotFoundError
 from app.schemas.book import BookRead
 from app.services.book import get_book_by_id as get_book_by_id_service
+
 router = APIRouter()
 
 

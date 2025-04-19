@@ -113,3 +113,31 @@ Modify the `DATABASE_URL` in your `.env` file to use PostgreSQL (e.g., `postgres
 
 For more detail you can check this [README](https://github.com/pooyaostvoar/TestProject/blob/main/alembic/README.md)
 
+---
+### Linter and Code Formatter
+
+This project uses **Flake8** for linting and **Black** for automatic code formatting. Below is the information on how to run these tools manually.
+
+#### 1. Linting with Flake8
+
+**Flake8** is a tool for checking the style guide enforcement and code quality of your Python code.
+
+To run **Flake8** manually in the `app` folder:
+
+```bash
+flake8 app/
+```
+
+This command will check all Python files in the `app` directory for linting issues based on the project's style rules.
+
+#### 2. Formatting with Black
+
+**Black** is a code formatter that reformats your Python code to ensure consistent style across the project.
+
+To format the code manually using **Black** in the `app` folder:
+
+```bash
+black app/
+```
+
+This command will automatically format the code in the `app` directory according to Black's strict rules.

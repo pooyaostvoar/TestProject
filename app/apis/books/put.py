@@ -7,8 +7,11 @@ from app.services.book import update_book as update_book_service
 
 router = APIRouter()
 
+
 @router.put("/books/{book_id}", response_model=BookRead)
-def update_book(book_id: int, book_in: BookCreate, session: Session = Depends(get_session)):
+def update_book(
+    book_id: int, book_in: BookCreate, session: Session = Depends(get_session)
+):
     try:
         return update_book_service(book_id, book_in, session)
     except BookNotFoundError:

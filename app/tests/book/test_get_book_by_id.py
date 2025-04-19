@@ -3,12 +3,17 @@ from app.main import app
 
 client = TestClient(app)
 
+
 def add_book():
-     response = client.post("/books", json={
-        "title": "Book",
-        "author": "Author",
-    })
-     return  response.json()
+    response = client.post(
+        "/books",
+        json={
+            "title": "Book",
+            "author": "Author",
+        },
+    )
+    return response.json()
+
 
 def test_get_book_success():
     book_id = add_book()["id"]

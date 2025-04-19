@@ -3,6 +3,7 @@ from typing import Optional
 from datetime import date
 from stdnum import isbn as isbn_check
 
+
 class BookCreate(BaseModel):
     title: str
     author: str
@@ -21,9 +22,10 @@ class BookCreate(BaseModel):
                 "title": "The Deep Work",
                 "author": "Cal Newport",
                 "published_date": "2025-04-18",
-                "isbn": "978-3-16-148410-0"
+                "isbn": "978-3-16-148410-0",
             }
         }
+
 
 class BookRead(BookCreate):
     id: int
